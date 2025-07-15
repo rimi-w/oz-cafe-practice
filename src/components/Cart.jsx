@@ -35,7 +35,7 @@ function Cart() {
 }
 
 function CartItem({ item, options, quantity }) {
-  const { cart, setCart } = useCart();
+  const { removeFromCart } = useCart();
 
   return (
     <li className="cart-item">
@@ -54,7 +54,7 @@ function CartItem({ item, options, quantity }) {
       <button
         className="cart-item-delete"
         onClick={() => {
-          setCart(cart.filter((el) => item.id !== el.id));
+          removeFromCart(item)
         }}
       >
         삭제

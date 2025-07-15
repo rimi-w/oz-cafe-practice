@@ -5,7 +5,7 @@ import { useCart } from '../context/cartContext'
 function OrderModal({ modalMenu, setModalOn }) {
     const [options, setOptions] = useState({ '온도': 0, '진하기': 0, '사이즈': 0 })
     const [quantity, setQuantity] = useState(1)
-    const { cart, setCart } = useCart();
+    const { addToCart } = useCart();
     const itemOptions = data.options
 
     return (
@@ -35,8 +35,8 @@ function OrderModal({ modalMenu, setModalOn }) {
                                 <input id="count" type="number" value={quantity} min='1' onChange={(event) => setQuantity(Number(event.target.value))} />
                             </div>
                             <button onClick={() => {
-                                setCart([...cart, { options, quantity, id: modalMenu.id }])
-                                setModalOn(false)
+                                addToCart(options, quantity, modalMenu.id);
+                                setModalOn(false);
                             }}>장바구니 넣기</button>
                         </div>
                     </div>

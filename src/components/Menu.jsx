@@ -4,7 +4,7 @@ import OrderModal from "./OrderModal";
 import { useMenu } from "../context/menuContext";
 
 function Menu() {
-  const { menu } = useMenu()
+  const { menu } = useMenu();
   const [modalOn, setModalOn] = useState(false);
   const [modalMenu, setModalMenu] = useState(null);
 
